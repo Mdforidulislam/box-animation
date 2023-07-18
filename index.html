@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
-        body {
+
+
+.all-animation-container{
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
+	gap: 100px;
+	padding: 100px;
+	justify-content: space-between;
+
 }
 
 /* Box-sizing for better sizing calculations */
@@ -81,14 +83,503 @@
 	}
 }
 
+	/* Email letter desing seciton  */
+
+
+.letter-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.animated-mail {
+  position: absolute;
+  height: 150px;
+  width: 200px;
+  -webkit-transition: .4s;
+  -moz-transition: .4s;
+  transition: .4s;
+  
+  .body {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 100px 200px;
+    border-color: transparent transparent #e95f55 transparent;
+    z-index: 2;
+  }
+  
+  .top-fold {
+    position: absolute;
+    top: 50px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50px 100px 0 100px;
+    -webkit-transform-origin: 50% 0%;
+    -webkit-transition: transform .4s .4s, z-index .2s .4s;
+    -moz-transform-origin: 50% 0%;
+    -moz-transition: transform .4s .4s, z-index .2s .4s;
+    transform-origin: 50% 0%;
+    transition: transform .4s .4s, z-index .2s .4s;
+    border-color: #cf4a43 transparent transparent transparent;
+    z-index: 2;
+  }
+  
+  .back-fold {
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    height: 100px;
+    background: #cf4a43;
+    z-index: 0;
+  }
+  
+  .left-fold {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50px 0 50px 100px;
+    border-color: transparent transparent transparent #e15349;
+    z-index: 2;
+  }
+  
+  .letter {
+    left: 20px;
+    bottom: 0px;
+    position: absolute;
+    width: 160px;
+    height: 60px;
+    background: white;
+    z-index: 1;
+    overflow: hidden;
+    -webkit-transition: .4s .2s;
+    -moz-transition: .4s .2s;
+    transition: .4s .2s;
+    
+    .letter-border {
+      height: 10px;
+      width: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        #cb5a5e,
+        #cb5a5e 8px,
+        transparent 8px,
+        transparent 18px
+      );
+    }
+    
+    .letter-title {
+      margin-top: 10px;
+      margin-left: 5px;
+      height: 10px;
+      width: 40%;
+      background: #cb5a5e;
+    }
+    .letter-context {
+      margin-top: 10px;
+      margin-left: 5px;
+      height: 10px;
+      width: 20%;
+      background: #cb5a5e;
+    }
+    
+    .letter-stamp {
+      margin-top: 30px;
+      margin-left: 120px;
+      border-radius: 100%;
+      height: 30px;
+      width: 30px;
+      background: #cb5a5e;
+      opacity: 0.3;
+    }
+  }
+}
+
+.shadow {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  width: 400px;
+  height: 30px;
+  transition: .4s;
+  transform: translateX(-50%);
+  -webkit-transition: .4s;
+  -webkit-transform: translateX(-50%);
+  -moz-transition: .4s;
+  -moz-transform: translateX(-50%);
+  
+  border-radius: 100%;
+  background: radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.0), rgba(0,0,0,0.0));
+}
+
+  .letter-image:hover {
+    .animated-mail {
+      transform: translateY(50px);
+      -webkit-transform: translateY(50px);
+      -moz-transform: translateY(50px);
+    }
+    
+    .animated-mail .top-fold {
+      transition: transform .4s, z-index .2s;
+      transform: rotateX(180deg);
+      -webkit-transition: transform .4s, z-index .2s;
+      -webkit-transform: rotateX(180deg);
+      -moz-transition: transform .4s, z-index .2s;
+      -moz-transform: rotateX(180deg);
+      z-index: 0;
+    }
+    
+    .animated-mail .letter {
+      height: 180px;
+    }
+    
+    .shadow {
+      width: 250px;
+    }
+  }
+
+  /* babule game design */
+  body {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(to bottom right, #070630 0%,#060454 100%);
+  min-height: 100vh;
+}
+
+.animation-container {
+  display: block;
+  position: relative;
+  width: 800px;
+  max-width: 100%;
+  margin: 0 auto;
+  
+  .lightning-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: flex;
+    transform: translateY(-50%);
+    
+    .lightning {
+      position: absolute;
+      display: block;
+      height: 12px;
+      width: 12px;
+      border-radius: 12px;
+      transform-origin: 6px 6px;
+
+      animation-name: woosh;
+      animation-duration: 1.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+      animation-direction: alternate;
+
+      &.white {
+        background-color: white;
+        box-shadow: 0px 50px 50px 0px transparentize(white, 0.7);
+      }
+
+      &.red {
+        background-color: #fc7171;
+        box-shadow: 0px 50px 50px 0px transparentize(#fc7171, 0.7);
+        animation-delay: 0.2s;
+      }
+    }
+  }
+  
+  
+  .boom-container {
+    position: absolute;
+    display: flex;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    align-items: center;
+    transform: translateY(-50%);
+    left: 200px;
+    top: -145px;
+    
+    .shape {
+      display: inline-block;
+      position: relative;
+      opacity: 0;
+      transform-origin: center center;
+      
+      &.triangle {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        transform-origin: 50% 80%;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        animation-iteration-count: infinite;
+        margin-left: -15px;
+        border-width: 0 2.5px 5px 2.5px;
+        border-color: transparent transparent #42e599 transparent;
+        animation-name: boom-triangle;
+        
+        &.big {
+          margin-left: -25px;
+          border-width: 0 5px 10px 5px;
+          border-color: transparent transparent #fade28 transparent;
+          animation-name: boom-triangle-big;
+        }
+      }
+      
+      &.disc {
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        background-color: #d15ff4;
+        animation-name: boom-disc;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        animation-iteration-count: infinite;
+      }
+      
+      &.circle {
+        width: 20px;
+        height: 20px;
+        animation-name: boom-circle;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        animation-iteration-count: infinite;
+        border-radius: 100%;
+        margin-left: -30px;
+        
+        &.white {
+          border: 1px solid white;
+        }
+        
+        &.big {
+          width: 40px;
+          height: 40px;
+          margin-left: 0px;
+          
+          &.white {
+            border: 2px solid white;
+          }
+        }
+      }
+      
+      &:after {
+        background-color: rgba(178, 215, 232, 0.2);
+      }
+    }
+    
+    .shape {
+      &.triangle, &.circle, &.circle.big, &.disc {
+        animation-delay: .38s;
+        animation-duration: 3s;
+      }
+      
+      &.circle {
+        animation-delay: 0.6s;
+      }
+    }
+    
+    &.second {
+      left: 485px;
+      top: 155px;
+      .shape {
+        &.triangle, &.circle, &.circle.big, &.disc {
+          animation-delay: 1.9s;
+        }
+        &.circle {
+          animation-delay: 2.15s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes woosh {
+  0% {
+    width: 12px;
+    transform: translate(0px, 0px) rotate(-35deg);
+  }
+  15% {
+    width: 50px;
+  }
+  30% {
+    width: 12px;
+    transform: translate(214px, -150px) rotate(-35deg);
+  }
+  30.1% {
+    transform: translate(214px, -150px) rotate(46deg);
+  }
+  50% {
+    width: 110px;
+  }
+  70% {
+    width: 12px;
+    transform: translate(500px, 150px) rotate(46deg);
+  }
+  70.1% {
+    transform: translate(500px, 150px) rotate(-37deg);
+  }
+  
+  85% {
+    width: 50px;
+  }
+  100% {
+    width: 12px;
+    transform: translate(700px, 0) rotate(-37deg);
+  }
+}
+
+@keyframes boom-circle {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+    transform: scale(3);
+  }
+  100% {
+  }
+}
+
+@keyframes boom-triangle-big {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  
+  40% {
+    opacity: 0;
+    transform: scale(2.5) translate(50px, -50px) rotate(360deg);
+  }
+  100% {
+  }
+}
+
+@keyframes boom-triangle {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  
+  30% {
+    opacity: 0;
+    transform: scale(3) translate(20px, 40px) rotate(360deg);
+  }
+  
+  100% {
+  }
+}
+
+@keyframes boom-disc {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+    transform: scale(2) translate(-70px, -30px);
+  }
+  100% {
+    
+  }
+}
+
+
+ FOOTER
+.footer {
+  color: white;
+  font-size: 10px;
+  position: fixed;
+  bottom: 0;
+  font-weight: 200;
+  padding: 10px 20px;
+  
+  a {
+    &,
+    &:hover,
+    &:focus,
+    &:visited {
+      color: #c6c6c6;
+    }
+  }
+}
+
     </style>
 </head>
 <body>
-    <div class="rainbow ">
-	        <div class="sub-rainbow">
-				<h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis dicta accusamus voluptates corrupti molestiae reprehenderit quod vero dolor temporibus libero repudiandae, exercitationem, explicabo mollitia hic, n</h3>
+	
+    <div class="all-animation-container">
+		<!-- box round color setup -->
+		<div class="rainbow ">
+				<div class="sub-rainbow">
+					<h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis dicta accusamus voluptates corrupti molestiae reprehenderit quod vero dolor temporibus libero repudiandae, exercitationem, explicabo mollitia hic, n</h3>
+				</div>
+	    </div>
+	<!-- button send design -->
+
+
+			<!-- email open css sytle -->
+			<div class="letter-image">
+				<div class="animated-mail">
+				     <div class="back-fold"></div>
+						<div class="letter">
+							<div class="letter-border"></div>
+							<div class="letter-title"></div>
+							<div class="letter-context"></div>
+							<div class="letter-stamp">
+							<div class="letter-stamp-inner"></div>
+							</div>
+						</div>
+							<div class="top-fold"></div>
+							<div class="body"></div>
+							<div class="left-fold"></div>
+				</div>
+				            <div class="shadow"></div>
 			</div>
 	</div>
+
+
+<!-- babule game -->
+		<div class="animation-container">
+			<div class="lightning-container">
+			<div class="lightning white"></div>
+			<div class="lightning red"></div>
+			</div>
+			<div class="boom-container">
+			<div class="shape circle big white"></div>
+			<div class="shape circle white"></div>
+			<div class="shape triangle big yellow"></div>
+			<div class="shape disc white"></div>
+			<div class="shape triangle blue"></div>
+			</div>
+			<div class="boom-container second">
+			<div class="shape circle big white"></div>
+			<div class="shape circle white"></div>
+			<div class="shape disc white"></div>
+			<div class="shape triangle blue"></div>
+			</div>
+		</div>
+
 
 </body>
 </html>
